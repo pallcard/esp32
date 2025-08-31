@@ -1,10 +1,12 @@
 #include <Arduino.h>
 
 // #include "lcd1602/lcd1602.h"
+#include "blinkeriot/blinkeriot.h"
 #include "keyboard/keyboard.h"
 #include "buzzer/buzzer.h"
 #include "tft/tft.h"
 #include "led/led.h"
+#include "net/net.h"
 #include "ps2/ps2.h"
 #include "tilt/tilt.h"
 #include "servo/servo.h"
@@ -19,7 +21,7 @@ void setup() {
    // lcdSetup();
     // tftSetup();
     // servoSetup();
-    wifiSetup();
+    // wifiSetup();
     // stepSetup();
     // ps2Setup();
     // keyboardSetup();
@@ -27,6 +29,8 @@ void setup() {
     // tiltSetup();
     // shakeSetup();
     // ultrasoundSetup();
+    // netSetup();
+    blinkeriotSetup();
 }
 
 
@@ -35,7 +39,7 @@ void loop() {
     // lcdLoop();
     // tftLoop();
     // servoLoop();
-    wifiLoop();
+    // wifiLoop();
     // stepLoop();
     // ps2Loop();
     // keyboardLoop();
@@ -43,4 +47,6 @@ void loop() {
     // tiltLoop();
     // shakeLoop();
    // ultrasoundLoop();
+    // netLoop();
+    blinkeriotLoop();
 }
