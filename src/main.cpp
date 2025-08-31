@@ -19,14 +19,14 @@ void setup() {
    // lcdSetup();
     // tftSetup();
     // servoSetup();
-    // wifiSetup();
+    wifiSetup();
     // stepSetup();
     // ps2Setup();
     // keyboardSetup();
     // buzzerSetup();
     // tiltSetup();
     // shakeSetup();
-    ultrasoundSetup();
+    // ultrasoundSetup();
 }
 
 
@@ -35,12 +35,12 @@ void loop() {
     // lcdLoop();
     // tftLoop();
     // servoLoop();
-    // wifiLoop();
+    wifiLoop();
     // stepLoop();
     // ps2Loop();
     // keyboardLoop();
     // buzzerLoop();
     // tiltLoop();
     // shakeLoop();
-   ultrasoundLoop();
+   // ultrasoundLoop();
 }
