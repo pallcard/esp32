@@ -5,20 +5,59 @@
 #define TFT_GREY 0x5AEB // New colour
 
 TFT_eSPI tft = TFT_eSPI();  // Invoke library
+TFT_eSprite sprite = TFT_eSprite(&tft);  // 缓冲1
 
 
 void tftSetup() {
-    // Serial.begin(9600);
-    tft.init();
-    tft.setRotation(0);
-    tft.invertDisplay(0);
-    tft.setSwapBytes(true);
+    Serial.begin(115200);
+    // tft.begin();
+    // tft.setRotation(0);
+    // tft.invertDisplay(0);
+    // tft.setSwapBytes(true);
+    tft.init();                      // 初始化屏幕
+    tft.setRotation(0);              // 设置屏幕方向（0-3）
+    tft.fillScreen(TFT_BLACK);       // 清屏为黑色
+
+    // 创建 Sprite（尺寸小于屏幕时可节省内存）
+    if (sprite.createSprite(150, 100) == nullptr) { // 检查Sprite是否创建成功
+        Serial.println("Sprite创建失败！内存不足！");
+        while (1) delay(100); //  halt
+    }
+    Serial.println("Sprite创建成功");
+    // sprite.createSprite(210, 210);   // 宽度=200像素，高度=100像素
+    sprite.setTextColor(TFT_WHITE);  // 设置文本颜色
+    sprite.setTextSize(2);           // 设置文本大小
+}
+
+
+void tftLoop2()
+{
+    static int counter = 0;
+
+    // 1. 清空 Sprite（填充黑色背景）
+    sprite.fillSprite(TFT_BLUE);
+
+    // 2. 在 Sprite 上绘制内容
+    sprite.drawString("Counter:", 10, 10);  // 文本
+    sprite.drawNumber(counter, 10, 30);    // 数字
+    sprite.drawRect(5, 5, 140, 90, TFT_GREEN); // 边框
+
+    // 3. 将 Sprite 推送到屏幕的指定位置（避免闪屏的关键）
+    sprite.pushSprite(0, 0);       // 推送到屏幕坐标 (20,20)
+
+    // tft.setCursor(50,50);
+    // tft.setTextColor(TFT_WHITE);
+    // tft.printf("xxxxx");
+
+    counter++;
+    delay(100); // 延迟以控制更新速度
 }
 
 void tftLoop()
 {
     // Fill screen with grey so we can see the effect of printing with and without
     // a background colour defined
+    // tft.fillScreen(TFT_GREY);
     tft.fillScreen(TFT_GREY);
 
     // Set "cursor" at top left corner of display (0,0) and select font 2

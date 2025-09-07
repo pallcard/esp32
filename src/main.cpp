@@ -19,7 +19,7 @@
 void setup() {
    // ledSetup();
    // lcdSetup();
-    // tftSetup();
+    tftSetup();
     // servoSetup();
     // wifiSetup();
     // stepSetup();
@@ -30,7 +30,7 @@ void setup() {
     // shakeSetup();
     // ultrasoundSetup();
     // netSetup();
-    blinkeriotSetup();
+    // blinkeriotSetup();
 }
 
 
@@ -38,6 +38,7 @@ void loop() {
     // ledLoop();
     // lcdLoop();
     // tftLoop();
+    tftLoop2();
     // servoLoop();
     // wifiLoop();
     // stepLoop();
@@ -48,5 +49,5 @@ void loop() {
     // shakeLoop();
    // ultrasoundLoop();
     // netLoop();
-    blinkeriotLoop();
+    // blinkeriotLoop();
 }

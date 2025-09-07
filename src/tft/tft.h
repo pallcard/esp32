@@ -12,6 +12,7 @@ class tft
 
 void tftSetup();
 void tftLoop();
+void tftLoop2();
 
 
 #endif //ESP32_LCD_H

@@ -10,9 +10,9 @@
 
 #define LED_BUILTIN 15
 
-char auth[] = "xx";
+char auth[] = "b672ab1059dc";
 char ssid2[] = "201";
-char pswd2[] = "xx";
+char pswd2[] = "18162327131lk";
 
 BlinkerButton btn("btn");
 
